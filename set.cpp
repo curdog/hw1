@@ -11,12 +11,14 @@ Set<kind>::Set(  ){
 
 template <class kind>
 Set<kind>::~Set(){
+  //mostly terrible way to do this O((2n-1/)2)
+  //otherwise mem usage would double or possible stack overflow with recusive
+  cur = head;
   while( head != 0 ){
     while( cur->getNext() != 0 ){
       cur=cur->getNext();
     }
     delete cur;
-    cur = head;
   }  
 }
 
@@ -30,8 +32,15 @@ kind Set<kind>::next(){
 
 
 template <class kind>
-kind Set<kind>::add( kind addMe  ){
-  return 0;
+void Set<kind>::add( kind addMe  ){
+  Node<kind>* searchIndex = head;
+  while( searchIndex ){
+    if( addMe == searchIndex->getData() ){
+      return;
+    }
+  }
+  
+  Node<kind>* addMeNode = new Node( cur->getNext() );
 }
 
 
@@ -41,13 +50,15 @@ int Set<kind>::rm(){
     return -1;
   }
 
-  node <kind>* delme = cur;
-  if( index == 0 ){
-     head = cur->getNext();
-    cur = head;
-    delete cur;
+  Node <kind>* delme = cur;
+  
+  if( delme  == head ){
+     
+    head = head->getNext();
+    delete delme;
+     
   } else {
-      node<kind>* prev = head;
+      delme = head;
 
       while( prev->getNext() != cur ){
 	prev = prev->getNext();
