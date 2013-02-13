@@ -38,14 +38,15 @@ void Set<kind>::add( kind addMe  ){
     if( addMe == searchIndex->getData() ){
       return;
     }
-  }
-  
-  Node<kind>* addMeNode = new Node( cur->getNext() );
+  } 
+  Node<kind>* addMeNode = new Node( addMe, cur->getNext() );
+  cur->setNext( addMeNode );
+
 }
 
 
 template <class kind>
-int Set<kind>::rm(){
+int Set<kind>::rm( ){
   if( head == 0 ){
     return -1;
   }
@@ -72,7 +73,7 @@ int Set<kind>::rm(){
 }
 
 template <class kind>
-kind* Set<kind>::cur(){
+kind Set<kind>::cur(){
   return cur;
 }
 
@@ -83,7 +84,7 @@ void Set<kind>::retToHead(){
 
 template <class kind>
 bool Set<kind>::search( kind s ){
-  node<kind>* searchIndex = head;
+  Node<kind>* searchIndex = head;
   while( searchIndex ){
     if( searchIndex->getData() == s ){
       cur = searchIndex;

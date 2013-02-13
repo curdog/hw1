@@ -8,16 +8,16 @@ public:
   virtual Set(kind* head = 0 );
   virtual ~Set();
 
-  kind* next();
+  kind next();
   void add( kind, int );
   int rm( );
-  kind* cur( );
+  kind cur( );
   void retToHead();
   bool search( kind );
 
 protected:
-  node<kind>* head;
-  node<kind>* cur;
+  Node<kind>* head;
+  Node<kind>* cur;
 };
 
 
