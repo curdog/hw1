@@ -1,20 +1,21 @@
 #include <iostream>
-#include "sll.hxx"
+#include "set.hxx"
 #include "node.hxx"
 
+
 template <class kind>
-Sll<kind>::Sll(  ){
+Set<kind>::Set(  ){
   head = 0;
   curr = 0;
 }
 
 template <class kind>
-Sll<kind>::~Sll(){
+Set<kind>::~Set(){
   
 }
 
 template <class kind>
-kind Sll<kind>::next(){
+kind Set<kind>::next(){
   index++;
   cur=cur->getNext();
   return cur->getData();
@@ -23,13 +24,13 @@ kind Sll<kind>::next(){
 
 
 template <class kind>
-kind Sll<kind>::add( kind addMe  ){
+kind Set<kind>::add( kind addMe  ){
   return 0;
 }
 
 
 template <class kind>
-int rm(){
+int Set<kind>::rm(){
   if( head == 0 ){
     return -1;
   }
@@ -54,17 +55,17 @@ int rm(){
 }
 
 template <class kind>
-kind* Sll<kind>::cur(){
+kind* Set<kind>::cur(){
   return cur;
 }
 
 template <class kind>
-void Sll<kind>::retToHead(){
+void Set<kind>::retToHead(){
   cur = head;
 }
 
 template <class kind>
-bool search( kind s ){
+bool Set<kind>::search( kind s ){
   node<kind>* searchIndex = head;
   while( searchIndex ){
     if( searchIndex->getData() == s ){

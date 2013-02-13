@@ -1,5 +1,5 @@
-#ifndef NODE_SC
-#define NODE_SC
+#ifndef NODE
+#define NODE
 
 template <class prim> class Node{
 

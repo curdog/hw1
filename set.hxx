@@ -5,8 +5,8 @@
 
 template <kind> class Set {
 public:
-  virtual Sll(kind* head = 0 );
-  virtual ~Sll();
+  virtual Set(kind* head = 0 );
+  virtual ~Set();
 
   kind* next();
   void add( kind, int );
