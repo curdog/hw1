@@ -11,12 +11,18 @@ Set<kind>::Set(  ){
 
 template <class kind>
 Set<kind>::~Set(){
-  
+  while( head != 0 ){
+    while( cur->getNext() != 0 ){
+      cur=cur->getNext();
+    }
+    delete cur;
+    cur = head;
+  }  
 }
 
 template <class kind>
 kind Set<kind>::next(){
-  index++;
+  
   cur=cur->getNext();
   return cur->getData();
 
