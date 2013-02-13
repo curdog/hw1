@@ -1,11 +1,11 @@
-#ifndef SLL_SC
-#define SLL_SC
+#ifndef SET
+#define SLL
 
 #include "node.hxx"
 
-template <kind> class Sll {
+template <class kind> class Sll {
 public:
-  virtual Sll(kind* head = 0 );
+  Sll(kind* head = 0 );
   virtual ~Sll();
   kind* next();
   void add( kind, int );
