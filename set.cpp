@@ -109,7 +109,7 @@ ostream& operator << (ostream& outp, Set obj1)
 			for (int x = 0; x < counter; x++)
 		        {
 		        	current = head;
-		        	cout << current;
+		        	cout << current->data;
 		        	current = current->next;
 		        }/*end first for loop*/
 		}/*end first for loop*/
