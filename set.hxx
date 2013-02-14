@@ -3,15 +3,16 @@
 
 #include "node.hxx"
 
-template <kind> class Set {
+template <class kind> class Set {
+
 public:
-  virtual Set(kind* head = 0 );
+  Set(  );
   virtual ~Set();
 
   kind next();
   void add( kind, int );
   int rm( );
-  kind cur( );
+  kind getCur( );
   void retToHead();
   bool search( kind );
 

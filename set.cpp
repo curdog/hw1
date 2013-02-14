@@ -6,7 +6,7 @@
 template <class kind>
 Set<kind>::Set(  ){
   head = 0;
-  curr = 0;
+  cur = 0;
 }
 
 template <class kind>
@@ -47,7 +47,7 @@ void Set<kind>::add( kind addMe  ){
 
 template <class kind>
 int Set<kind>::rm( ){
-  if( head == 0 ){
+  if( this->head == 0 ){
     return -1;
   }
 
@@ -57,7 +57,7 @@ int Set<kind>::rm( ){
      
     head = head->getNext();
     delete delme;
-     
+    return 0;
   } else {
       delme = head;
 
@@ -68,13 +68,14 @@ int Set<kind>::rm( ){
       cur = prev;
       prev = cur->getNext();
       delete prev;
-    
+      return 0;
   }
+  return -1;
 }
 
 template <class kind>
-kind Set<kind>::cur(){
-  return cur;
+kind Set<kind>::getCur(){
+  return cur->getData();
 }
 
 template <class kind>
