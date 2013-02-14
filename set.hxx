@@ -47,6 +47,8 @@
 #include "node.hxx"
 
 template <class kind> class Set {
+  
+  friend ostream& operator<< (ostream&, const Set&);
 
 public:
   Set(  );
