@@ -40,7 +40,7 @@ void Set<kind>::add( kind addMe  ){
     }
   }
 
-  Node<kind>* addMeNode = new Node( addMe, cur->getNext() );
+  Node<kind>* addMeNode = new Node<kind>( addMe, cur->getNext() );
   cur->setNext( addMeNode );
 
 }
