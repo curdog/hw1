@@ -6,7 +6,7 @@
 int main(){
   
   /*creating an object called obj*/
-  Set obj1;
+  Set<int> obj1;
   
   /*displays menu*/
   cout << "1. Insert\n";
@@ -23,14 +23,17 @@ int main(){
   switch(choice)
   {
     case 1:
+      cout << "Insert your number: "
       add();
       break;
       
     case 2: 
+      cout << "Search the index: "
       search();
       break;
       
     case 3: 
+      cout << "Insert number to be removed: "
       rm();
       break;
       
