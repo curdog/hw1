@@ -6,7 +6,7 @@
 int main(){
   
   /*creating an object called obj*/
-  Node obj;
+  Set obj1;
   
   /*displays menu*/
   cout << "1. Insert\n";
