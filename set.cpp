@@ -96,3 +96,26 @@ bool Set<kind>::search( kind s ){
   }
   return false;
 }
+
+/*overloads the << operator*/
+ostream& operator << (ostream& outp, Set obj1)
+{
+	while(counter >= 0)
+	{
+	        /*outputs rows by 4*/
+		for (int col = 0; col < 4; col++)
+		{
+			/*moving current and extracting data from each node*/
+			for (int x = 0; x < counter; x++)
+		        {
+		        	current = head;
+		        	cout << current;
+		        	current = current->next;
+		        }/*end first for loop*/
+		}/*end first for loop*/
+		
+		/*jumps to the next row*/
+		cout << endl;
+	} /*end while loop*/
+return outp;
+}/*ostream*/
