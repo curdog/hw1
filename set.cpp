@@ -38,7 +38,8 @@ void Set<kind>::add( kind addMe  ){
     if( addMe == searchIndex->getData() ){
       return;
     }
-  } 
+  }
+
   Node<kind>* addMeNode = new Node( addMe, cur->getNext() );
   cur->setNext( addMeNode );
 
@@ -61,13 +62,13 @@ int Set<kind>::rm( ){
   } else {
       delme = head;
 
-      while( prev->getNext() != cur ){
-	prev = prev->getNext();
+      while( delme->getNext() != cur ){
+	delme = delme->getNext();
       }
 
-      cur = prev;
-      prev = cur->getNext();
-      delete prev;
+      cur = delme->getNext()->getNext();
+      delme = cur->getNext();
+      delete delme;
       return 0;
   }
   return -1;

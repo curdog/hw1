@@ -10,7 +10,7 @@ public:
   virtual ~Set();
 
   kind next();
-  void add( kind, int );
+  void add( kind );
   int rm( );
   kind getCur( );
   void retToHead();
