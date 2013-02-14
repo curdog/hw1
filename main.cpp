@@ -23,22 +23,26 @@ int main(){
   switch(choice)
   {
     case 1:
-      cout << "Insert your number: "
-      add();
+      cout << "Insert your number: ";
+      int number;
+      cin >> number;
+      obj1.add(number);
       break;
       
     case 2: 
-      cout << "Search the index: "
-      search();
+      cout << "Search the index: ";
+      cin >> number;
+      obj1.search(number);
       break;
       
     case 3: 
-      cout << "Insert number to be removed: "
-      rm();
+      cout << "Insert number to be removed: ";
+      obj1.rm(number);
       break;
       
     case 4: 
       /*operation overload*/
+      obj1.display();
       break;
     
     case 5:
