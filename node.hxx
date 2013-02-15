@@ -60,16 +60,16 @@
 template <class prim> class Node{
 
 public:
-  Node( prim* datas );
-  Node( prim* datas, Node<prim> *next );
+  Node( prim datas );
+  Node( prim datas, Node<prim> *next );
   ~Node();
   
-  prim* getNext();
+  Node<prim>* getNext();
   void setNext( Node<prim> *next );
   void setDatas( prim* datas );
 
 protected:
-  prim* data;
+  prim data;
   Node<prim> *nextNode;
 };
 #endif

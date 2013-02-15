@@ -2,6 +2,7 @@
 //change to set.hxx when I change the file names and whatnot
 #include "set.hxx"
 #include <iostream>
+#include "node.hxx"
 
 #define TYPE int
 
@@ -11,7 +12,7 @@ int main(){
   
   /*creating an object called obj*/
   Set<TYPE> obj1 = Set<TYPE>();
-  
+  Node<TYPE> test = Node<TYPE>();
   int choice = 0;
   while(1){
     /*displays menu*/

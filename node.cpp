@@ -1,12 +1,13 @@
 #include "node.hxx"
 
 template <class prim>
-Node<prim>::Node( prim * datas ){
+Node<prim>::Node( prim  datas ){
   data = datas;
+  nextNode = 0;
 }
 
 template <class prim>
-Node<prim>::Node(prim * datas, Node<prim>* next ){
+Node<prim>::Node(prim  datas, Node<prim>* next ){
   data = datas;
   nextNode = next;
 }
@@ -17,7 +18,7 @@ Node<prim>::~Node( ){
 }
 
 template <class prim>
-prim* Node<prim>::getNext(){
+Node<prim>* Node<prim>::getNext(){
   return data;
 }
 

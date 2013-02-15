@@ -41,8 +41,8 @@
 //     Postcondition:  print values neatly on screen, line dup in columns, 4 per line 
 
 
-#ifndef SLL_SC
-#define SLL_SC
+#ifndef Set_SC
+#define Set_SC
 
 #include "node.hxx"
 #include <ostream>

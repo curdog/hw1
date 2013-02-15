@@ -75,9 +75,15 @@ int Set<kind>::rm( ){
   return -1;
 }
 
+
+//should throw exception if null, though for this homework it will return 0/NULL
 template <class kind>
 kind Set<kind>::getCur(){
-  return cur->getData();
+  if( cur ){
+    return cur->getData();
+  } else {
+    return 0;
+  }
 }
 
 template <class kind>
