@@ -45,6 +45,7 @@
 #define SLL_SC
 
 #include "node.hxx"
+#include <iostream>
 
 template <class kind> class Set {
   
