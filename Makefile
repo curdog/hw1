@@ -1,7 +1,7 @@
 all: main
 
 main: main.cpp set.o node.o
-	g++ main.cpp set.o node.o -o testsll
+	g++ main.cpp set.o -o testsll
 
 set.o: set.hxx set.cpp node.o
 	g++ -c set.hxx set.cpp node.o

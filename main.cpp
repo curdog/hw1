@@ -3,25 +3,37 @@
 #include "set.hxx"
 #include <iostream>
 
+#define TYPE int
+
+using namespace std;
+
 int main(){
   
   /*creating an object called obj*/
-  Set<int> obj1;
+  Set<TYPE> obj1 = Set<TYPE>();
   
-  /*displays menu*/
-  cout << "1. Insert\n";
-  cout << "2. Search\n";
-  cout << "3. Remove Current Node";
-  cout << "4. Display List";
-  cout << "5. Quit";
-  cout << "Selection: ";
+  int choice = 0;
+  while(1){
+    /*displays menu*/
+    cout << "1. Insert\n";
+    cout << "2. Search\n";
+    cout << "3. Remove Current Node\n";
+    cout << "4. Display List\n";
+    cout << "5. Quit" << endl;
+    cout << "Selection: ";
   
-  /*reads input*/
-  cin >> choice;
+
+    /*reads input*/
+    while( !(cin >> choice) || cin.peek() != '\n' ){
+      cin.clear();
+      cin.ignore( 1337, '\n');
+      cout << "Please select 1-5: ";
+    } 
   
-  /*switch case for the menu*/
-  switch(choice)
-  {
+    TYPE dataTemp;
+    /*switch case for the menu*/
+    switch(choice)
+    {
     case 1:
       cout << "Insert your number: ";
       int number;
@@ -32,25 +44,36 @@ int main(){
     case 2: 
       cout << "Search the index: ";
       cin >> number;
-      obj1.search(number);
+      if( obj1.search(number) ){
+	cout << "Node found and set to current." << endl;
+      } else {
+	cout << "Node NOT found. Current node not changed." << endl;
+      }
       break;
       
     case 3: 
-      cout << "Insert number to be removed: ";
-      obj1.rm(number);
+      dataTemp = obj1.getCur();
+      if( obj1.rm() == 0 ){
+	cout << "Current Node removed. Value: " <<  dataTemp << endl;
+      } else {
+	cout << "Set already empty" << endl;
+      }
       break;
       
     case 4: 
       /*operation overload*/
-      obj1.display();
+      cout << obj1; //no need for endl due to operator<< implementation
       break;
-    
+      
     case 5:
-      return 0;
+      return 0; //need because of swich case break conflict
       
     default:
-      cout << "Error: Please enter 1,2,3,4 or 5";
-  }/*end switch case*/ 
+      cout << "Error: Undefined behavior, please restart the program.";
+    }/*end switch case*/ 
+    
+    
+  } //end infinite while loop for input
   
-  return 0;
+  return 0; //so g++ does not complain about non-returning branches
 }
