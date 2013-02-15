@@ -11,10 +11,11 @@ Set<kind>::Set(  ){
 
 template <class kind>
 Set<kind>::~Set(){
-  //mostly terrible way to do this O((2n-1/)2)
+  //mostly terrible way to do this, go to close to the last node then delete 
   //otherwise mem usage would double or possible stack overflow with recusive
-  cur = head;
+  
   while( head != 0 ){
+    cur = head;
     while( cur->getNext() != 0 ){
       cur=cur->getNext();
     }
@@ -101,19 +102,16 @@ bool Set<kind>::search( kind s ){
 template <class kind>
 std::ostream& operator <<  (std::ostream& outp, Set<kind>& obj1)
 {
-  
-  while(counter >= 0)
+  Node<kind>* counter = obj1->head;
+  while(counter) // as long as counter is not null, there is more in the list
     {
       /*outputs rows by 4*/
-      for (int col = 0; col < 4; col++)
+      for (int col = 0; col < 4 && counter != 0; col++)
 	{
 	  /*moving current and extracting data from each node*/
-	  for (int x = 0; x < counter; x++)
-	    {
-	      obj1->cur = obj1->head;
-	      outp << obj1->cur->data;
-	      obj1->cur = obj1->cur->next;
-	    }/*end first for loop*/
+	  
+	  outp << counter->data;
+	  counter = counter->next;
 	}/*end first for loop*/
       
       /*jumps to the next row*/
