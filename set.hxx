@@ -45,13 +45,12 @@
 #define SLL_SC
 
 #include "node.hxx"
-#include <iostream>
+#include <ostream>
 
 template <class kind> class Set {
   
-  friend ostream& operator<< (ostream&, const Set&);
-
 public:
+  friend std::ostream& operator<<  (std::ostream&, const Set<kind>&);
   Set(  );
   virtual ~Set();
 

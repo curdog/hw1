@@ -1,4 +1,4 @@
-#include <iostream>
+#include <ostream>
 #include "set.hxx"
 #include "node.hxx"
 
@@ -98,7 +98,7 @@ bool Set<kind>::search( kind s ){
 }
 
 /*overloads the << operator*/
-ostream& operator << (ostream& outp, Set obj1)
+std::ostream& operator <<  (std::ostream& outp, Set<kind>& obj1)
 {
 	while(counter >= 0)
 	{
