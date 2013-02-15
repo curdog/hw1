@@ -100,22 +100,23 @@ bool Set<kind>::search( kind s ){
 /*overloads the << operator*/
 std::ostream& operator <<  (std::ostream& outp, Set<kind>& obj1)
 {
-	while(counter >= 0)
+  int counter
+  while(counter >= 0)
+    {
+      /*outputs rows by 4*/
+      for (int col = 0; col < 4; col++)
 	{
-	        /*outputs rows by 4*/
-		for (int col = 0; col < 4; col++)
-		{
-			/*moving current and extracting data from each node*/
-			for (int x = 0; x < counter; x++)
-		        {
-		        	current = head;
-		        	cout << current->data;
-		        	current = current->next;
-		        }/*end first for loop*/
-		}/*end first for loop*/
-		
-		/*jumps to the next row*/
-		cout << endl;
-	} /*end while loop*/
-return outp;
+	  /*moving current and extracting data from each node*/
+	  for (int x = 0; x < counter; x++)
+	    {
+	      cur = head;
+	      std::cout << cur->data;
+	      cur = cur->next;
+	    }/*end first for loop*/
+	}/*end first for loop*/
+      
+      /*jumps to the next row*/
+      std::cout << std::endl;
+    } /*end while loop*/
+  return outp;
 }/*ostream*/
