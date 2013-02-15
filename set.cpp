@@ -98,9 +98,10 @@ bool Set<kind>::search( kind s ){
 }
 
 /*overloads the << operator*/
+template <class kind>
 std::ostream& operator <<  (std::ostream& outp, Set<kind>& obj1)
 {
-  int counter
+  
   while(counter >= 0)
     {
       /*outputs rows by 4*/
@@ -109,14 +110,14 @@ std::ostream& operator <<  (std::ostream& outp, Set<kind>& obj1)
 	  /*moving current and extracting data from each node*/
 	  for (int x = 0; x < counter; x++)
 	    {
-	      cur = head;
-	      std::cout << cur->data;
-	      cur = cur->next;
+	      obj1->cur = obj1->head;
+	      outp << obj1->cur->data;
+	      obj1->cur = obj1->cur->next;
 	    }/*end first for loop*/
 	}/*end first for loop*/
       
       /*jumps to the next row*/
-      std::cout << std::endl;
+      outp << std::endl;
     } /*end while loop*/
   return outp;
 }/*ostream*/
