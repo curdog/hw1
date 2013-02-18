@@ -45,6 +45,7 @@ int main(){
       break;
       
     case 2: 
+      /*searches the list for same number*/
       cout << "Search the index: ";
       cin >> number;
       if( obj1.search(number) ){
@@ -55,6 +56,7 @@ int main(){
       break;
       
     case 3: 
+      /*removes the number the user no longer wants in the list*/
       dataTemp = obj1.getCur();
       if( obj1.rm() == 0 ){
 		cout << "Current Node removed. Value: " <<  dataTemp << endl;
