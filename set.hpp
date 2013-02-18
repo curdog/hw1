@@ -47,6 +47,7 @@
 #include "node.hpp"
 #include <ostream>
 
+//pre-defs for linking
 template<class kind> class Set;
 template<class kind> std::ostream& operator<< (std::ostream& osObject, const Set<kind>& );
 
@@ -66,6 +67,7 @@ public:
   void retToHead();
   bool search( kind );
 
+  //declaration must be here to link
   friend std::ostream& operator<<  (std::ostream& outp, const Set<kind>& obj1){
     Node<kind>* counter = obj1.head;
     while(counter) // as long as counter is not null, there is more in the list                                                                                                                                    

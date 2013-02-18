@@ -2,12 +2,12 @@
 #include "set.hpp"
 #include "node.hpp"
 #include <iostream>
-
+#include <cstdlib>
 template <class kind>
 Set<kind>::Set(  ){
   /*initialize*/
-  head = 0;
-  cur = 0;
+  head = NULL;
+  cur = NULL;
 }
 
 template <class kind>
@@ -16,7 +16,7 @@ Set<kind>::~Set(){
   //otherwise mem usage would double or possible stack overflow with recusive
   
   /*while head is not 0, current = head */
-  while( head != 0 ){
+  while( head != NULL ){
     cur = head;
     while( cur->getNext() != 0 ){
       cur=cur->getNext();
@@ -39,8 +39,16 @@ kind Set<kind>::next(){
 
 template <class kind>
 void Set<kind>::add( kind addMe  ){
-  Node<kind>* searchIndex = head;
-  while( searchIndex != 0 ){
+  Node<kind>* searchIndex;
+  searchIndex = head;
+  if( head == NULL ){
+    head = new Node<kind>( addMe );
+    cur = head;
+    return;
+  }
+  std::cout<< "????" << std::endl;
+  while( searchIndex != NULL ){
+    std::cout<< "should not be here" << std::endl;
     if( addMe == searchIndex->getData() ){
       return;
     }/*ends if*/
@@ -48,13 +56,13 @@ void Set<kind>::add( kind addMe  ){
 
   Node<kind>* addMeNode = new Node<kind>( addMe, cur->getNext() );
   cur->setNext( addMeNode );
-
+  std::cout << "maybe here" << std::endl;
 }/*add*/
 
 
 template <class kind>
 int Set<kind>::rm( ){
-  if( this->head == 0 ){
+  if( this->head == NULL ){
     return -1;
   }/*ends if*/
 
@@ -115,25 +123,4 @@ bool Set<kind>::search( kind s ){
   return false;
 }/*search*/
 
-/*overloads the << operator*/
-/*template <class kind>
-std::ostream& operator<<  (std::ostream& outp, const Set<kind>& obj1)
-{
-  Node<kind>* counter = obj1.head;
-  while(counter) // as long as counter is not null, there is more in the list
-    {
-      //outputs rows by 4
-      for (int col = 0; col < 4 && counter != 0; col++)
-	{
-	  moving current and extracting data from each node
-	  
-	  outp << counter->getData();
-	  counter = counter->getNext();
-	}//end first for loop
-      
-//jumps to the next row
-      outp << std::endl;
-} //end while loop
-  return outp;
-}
-*/
+
