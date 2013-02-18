@@ -77,7 +77,7 @@ public:
 	  {
 	    /*moving current and extracting data from each node*/
 	    
-	    outp << counter->getData();
+	    outp << counter->getData() << "\t";
 	    counter = counter->getNext();
 	  }/*end first for loop*/
 	

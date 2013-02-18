@@ -28,7 +28,9 @@ Set<kind>::~Set(){
     delete cur->getNext();
     cur->setNext(NULL);
   }/*end while*/
-  delete head;
+  if( head != NULL ){
+    delete head;
+  }
   
 }/*ends ~Set*/
 
