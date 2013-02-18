@@ -1,6 +1,7 @@
 #include <ostream>
 #include "set.hpp"
 #include "node.hpp"
+#include <iostream>
 
 template <class kind>
 Set<kind>::Set(  ){

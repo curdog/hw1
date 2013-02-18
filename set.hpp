@@ -47,6 +47,9 @@
 #include "node.hpp"
 #include <ostream>
 
+template<class kind> class Set;
+template<class kind> std::ostream& operator<< (std::ostream& osObject, const Set<kind>& );
+
 template <class kind> class Set {
   
 public:

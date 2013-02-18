@@ -1,9 +1,7 @@
-//stuffs goes heres
-//change to set.hxx when I change the file names and whatnot
 #include "set.hpp"
 #include <iostream>
 
-
+//For template class type
 #define TYPE int
 
 using namespace std;
