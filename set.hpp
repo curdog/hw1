@@ -50,10 +50,12 @@
 template <class kind> class Set {
   
 public:
+  /*friend function*/
   friend std::ostream& operator<<  (std::ostream&, const Set<kind>&);
   Set(  );
   virtual ~Set();
 
+  /*functions*/
   kind next();
   void add( kind );
   int rm( );
@@ -61,7 +63,9 @@ public:
   void retToHead();
   bool search( kind );
 
+
 private:
+/*pointers*/
   Node<kind>* head;
   Node<kind>* cur;
 };
