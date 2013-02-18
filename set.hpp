@@ -7,42 +7,42 @@
 //     Postcondition:  last has been set to default, first has been set to default, hours worked has been set to 10, and houly rate has been set to 10.0
 //
 // MODIFICATION MEMBER FUNCTIONS for the Fraction class
-//     void add (kind addme)
+//   void add (<kind> addme)
 //     Description:    Adds an element of type kind in the set if the element does not already exist
 //     Precondition:   none
 //     Postcondition:  new element in set
 //
 //   void rm ()
 //     Description:  	delete current node
-//     Precondition:  head ==0, return -1
-//     Postcondition:  node is deleted, return value removed
+//     Precondition:    Non-empty set
+//     Postcondition:   node is deleted, return value removed
 //
 //   void search (kind s)
 //     Description:  	search for value
-//     Precondition:  read value passed and search for value in list
-//     Postcondition:  value found = true, value not found = false
+//     Precondition:    read value passed and search for value in list
+//     Postcondition:   value found = true, value not found = false
 //
 //
 //   void retToHead ()
 //     Description:  	return current to head
-//     Precondition:  none
-//     Postcondition:  head is the new current
+//     Precondition:    none
+//     Postcondition:   head is the new current
 //   
 //
-// CONSTANT MEMBER FUNCTIONS for the Employee class
-//   string getCur (void) const
-//     Description:  	get current
-//     Preconditions:  none
-//     Postcondition:  return current->getData
+// CONSTANT MEMBER FUNCTIONS for the Set class
+//   <kind>  getCur (void) const
+//     Description:     Gets current elements data
+//     Preconditions:   none
+//     Postcondition:   return current->getData
 //
-//   void display (void) const
-//     Description:  	display all values in Set
-//     Preconditions:  none
-//     Postcondition:  print values neatly on screen, line dup in columns, 4 per line 
+//   operator<< overload
+//     Description:     Overrides the << operator for stream usage
+//     Preconditions:   none
+//     Postcondition:   Prints values neatly on screen, line dup in columns, 4 per line. 
 
 
-#ifndef _Set_SC
-#define _Set_SC
+#ifndef _SET_SC
+#define _SET_SC
 
 #include "node.hpp"
 #include <ostream>
