@@ -1,6 +1,6 @@
 #include <ostream>
 #include "set.hpp"
-
+#include "node.hpp"
 
 template <class kind>
 Set<kind>::Set(  ){
@@ -105,7 +105,7 @@ bool Set<kind>::search( kind s ){
 
 /*overloads the << operator*/
 template <class kind>
-std::ostream& operator<<  <>(std::ostream& outp, const Set<kind>& obj1)
+std::ostream& operator<<  (std::ostream& outp, const Set<kind>& obj1)
 {
   Node<kind>* counter = obj1.head;
   while(counter) // as long as counter is not null, there is more in the list

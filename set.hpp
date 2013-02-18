@@ -50,7 +50,7 @@
 template <class kind> class Set {
   
 public:
-  friend std::ostream& operator<< <> (std::ostream&, const Set<kind>&);
+  friend std::ostream& operator<<  (std::ostream&, const Set<kind>&);
   Set(  );
   virtual ~Set();
 

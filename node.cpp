@@ -1,5 +1,5 @@
 
-
+#include "node.hpp"
 
 template <class prim>
 Node<prim>::Node( prim  datas ){
