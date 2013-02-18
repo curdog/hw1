@@ -1,8 +1,8 @@
 //stuffs goes heres
 //change to set.hxx when I change the file names and whatnot
-#include "set.hxx"
+#include "set.hpp"
 #include <iostream>
-#include "node.hxx"
+
 
 #define TYPE int
 
@@ -11,8 +11,8 @@ using namespace std;
 int main(){
   
   /*creating an object called obj*/
-  Set<TYPE> obj1 = Set<TYPE>();
-  Node<TYPE> test = Node<TYPE>();
+    Set<TYPE> obj1 = Set<TYPE>();
+    
   int choice = 0;
   while(1){
     /*displays menu*/
