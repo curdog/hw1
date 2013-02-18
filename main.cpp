@@ -46,18 +46,18 @@ int main(){
       cout << "Search the index: ";
       cin >> number;
       if( obj1.search(number) ){
-	cout << "Node found and set to current." << endl;
+		cout << "Node found and set to current." << endl;
       } else {
-	cout << "Node NOT found. Current node not changed." << endl;
+		cout << "Node NOT found. Current node not changed." << endl;
       }
       break;
       
     case 3: 
       dataTemp = obj1.getCur();
       if( obj1.rm() == 0 ){
-	cout << "Current Node removed. Value: " <<  dataTemp << endl;
+		cout << "Current Node removed. Value: " <<  dataTemp << endl;
       } else {
-	cout << "Set already empty" << endl;
+		cout << "Set already empty" << endl;
       }
       break;
       
