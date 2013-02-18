@@ -24,7 +24,7 @@ int main(){
     cout << "Selection: ";
   
 
-    /*reads input*/
+    /*reads input, error checking*/
     while( !(cin >> choice) || cin.peek() != '\n' ){
       cin.clear();
       cin.ignore( 1337, '\n');
@@ -37,7 +37,9 @@ int main(){
     {
     case 1:
       cout << "Insert your number: ";
+      /*declare variable*/
       int number;
+      /*reads number*/
       cin >> number;
       obj1.add(number);
       break;
