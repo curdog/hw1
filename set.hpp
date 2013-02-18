@@ -54,7 +54,7 @@ template <class kind> class Set {
   
 public:
   /*friend function*/
-  friend std::ostream& operator<<  (std::ostream&, const Set<kind>&);
+  
   Set(  );
   virtual ~Set();
 
@@ -65,6 +65,25 @@ public:
   kind getCur( );
   void retToHead();
   bool search( kind );
+
+  friend std::ostream& operator<<  (std::ostream& outp, const Set<kind>& obj1){
+    Node<kind>* counter = obj1.head;
+    while(counter) // as long as counter is not null, there is more in the list                                                                                                                                    
+      {
+	/*outputs rows by 4*/
+	for (int col = 0; col < 4 && counter != 0; col++)
+	  {
+	    /*moving current and extracting data from each node*/
+	    
+	    outp << counter->getData();
+	    counter = counter->getNext();
+	  }/*end first for loop*/
+	
+	/*jumps to the next row*/
+	outp << std::endl;
+      } /*end while loop*/
+    return outp;
+  }
 
 
 private:

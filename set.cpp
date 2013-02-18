@@ -40,7 +40,7 @@ kind Set<kind>::next(){
 template <class kind>
 void Set<kind>::add( kind addMe  ){
   Node<kind>* searchIndex = head;
-  while( searchIndex ){
+  while( searchIndex != 0 ){
     if( addMe == searchIndex->getData() ){
       return;
     }/*ends if*/
@@ -116,23 +116,24 @@ bool Set<kind>::search( kind s ){
 }/*search*/
 
 /*overloads the << operator*/
-template <class kind>
+/*template <class kind>
 std::ostream& operator<<  (std::ostream& outp, const Set<kind>& obj1)
 {
   Node<kind>* counter = obj1.head;
   while(counter) // as long as counter is not null, there is more in the list
     {
-      /*outputs rows by 4*/
+      //outputs rows by 4
       for (int col = 0; col < 4 && counter != 0; col++)
 	{
-	  /*moving current and extracting data from each node*/
+	  moving current and extracting data from each node
 	  
 	  outp << counter->getData();
 	  counter = counter->getNext();
-	}/*end first for loop*/
+	}//end first for loop
       
-      /*jumps to the next row*/
+//jumps to the next row
       outp << std::endl;
-    } /*end while loop*/
+} //end while loop
   return outp;
-}/*ostream*/
+}
+*/
