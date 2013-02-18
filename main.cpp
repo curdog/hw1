@@ -39,7 +39,6 @@ int main(){
       int number;
       /*reads number*/
       cin >> number;
-      cout << "??" << endl;
       obj1.add(number);
       break;
       

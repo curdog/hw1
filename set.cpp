@@ -3,6 +3,7 @@
 #include "node.hpp"
 #include <iostream>
 #include <cstdlib>
+
 template <class kind>
 Set<kind>::Set(  ){
   /*initialize*/
@@ -18,12 +19,17 @@ Set<kind>::~Set(){
   /*while head is not 0, current = head */
   while( head != NULL ){
     cur = head;
-    while( cur->getNext() != 0 ){
+    while( cur->getNext()->getNext() != NULL ){
+      
       cur=cur->getNext();
+      
     }/*end while*/
     /*deletes current*/
-    delete cur;
-  }/*end while*/  
+    delete cur->getNext();
+    cur->setNext(NULL);
+  }/*end while*/
+  delete head;
+  
 }/*ends ~Set*/
 
 template <class kind>
@@ -46,17 +52,18 @@ void Set<kind>::add( kind addMe  ){
     cur = head;
     return;
   }
-  std::cout<< "????" << std::endl;
+  
   while( searchIndex != NULL ){
-    std::cout<< "should not be here" << std::endl;
+    
     if( addMe == searchIndex->getData() ){
       return;
     }/*ends if*/
+    searchIndex = searchIndex->getNext();
   }/*ends while*/
 
   Node<kind>* addMeNode = new Node<kind>( addMe, cur->getNext() );
   cur->setNext( addMeNode );
-  std::cout << "maybe here" << std::endl;
+  
 }/*add*/
 
 
@@ -71,22 +78,24 @@ int Set<kind>::rm( ){
   if( delme  == head ){
      
     head = head->getNext();
+    cur = head;
     delete delme;
     return 0;
-  }/*ends if*/ else {
+  }  else {
       delme = head;
 
       while( delme->getNext() != cur ){
 	delme = delme->getNext();
-      }/*ends while*/
+      }
 
-      cur = delme->getNext()->getNext();
-      delme = cur->getNext();
+      cur = delme; //set to previous node
+      cur->setNext( cur->getNext()->getNext() );
+      delme = cur->getNext();//to delme
       /*delete delme*/
       delete delme;
       return 0;
-  }/*ends else*/
-  /*returns -1*/
+  }
+  
   return -1;
 }/*rm*/
 
