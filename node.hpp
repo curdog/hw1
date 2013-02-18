@@ -4,7 +4,7 @@
 //   Node()
 //     Description:  	constructor will initialize Employee objects
 //     Preconditions:  none
-//     Postcondition:  last has been set to default, first has been set to default, hours worked has been set to 10, and houly rate has been set to 10.0
+//     Postcondition:  last has been set to default, first has been set to default, hours worked has been set to 10, 
 //
 // MODIFICATION MEMBER FUNCTIONS for the Node class
 //   void add (const string value)
@@ -54,22 +54,27 @@
 //     Postcondition:  employees name is displayed (last, first) and gross pay 
 
 
-#ifndef NODE
-#define NODE
+#ifndef _NODE_C
+#define _NODE_C
 
 template <class prim> class Node{
 
 public:
-  Node( prim datas );
-  Node( prim datas, Node<prim> *next );
+  Node( prim );
+  Node( prim, Node<prim> * );
   ~Node();
   
   Node<prim>* getNext();
-  void setNext( Node<prim> *next );
-  void setDatas( prim* datas );
-
-protected:
+  void setNext( Node<prim>* );
+  void setDatas( prim );
+  prim getData();
+private:
   prim data;
   Node<prim> *nextNode;
 };
+
+#include "node.cpp"
+
 #endif
+
+

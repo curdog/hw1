@@ -8,9 +8,9 @@
 //
 // MODIFICATION MEMBER FUNCTIONS for the Fraction class
 //     void add (kind addme)
-//     Description:  	set data = next
-//     Precondition:  value <= 15 characters and no spaces
-//     Postcondition:  first name has been set to value
+//     Description:    Adds an element of type kind in the set if the element does not already exist
+//     Precondition:   none
+//     Postcondition:  new element in set
 //
 //   void rm ()
 //     Description:  	delete current node
@@ -41,16 +41,16 @@
 //     Postcondition:  print values neatly on screen, line dup in columns, 4 per line 
 
 
-#ifndef Set_SC
-#define Set_SC
+#ifndef _Set_SC
+#define _Set_SC
 
-#include "node.hxx"
+#include "node.hpp"
 #include <ostream>
 
 template <class kind> class Set {
   
 public:
-  friend std::ostream& operator<<  (std::ostream&, const Set<kind>&);
+  friend std::ostream& operator<< <> (std::ostream&, const Set<kind>&);
   Set(  );
   virtual ~Set();
 
@@ -61,10 +61,11 @@ public:
   void retToHead();
   bool search( kind );
 
-protected:
+private:
   Node<kind>* head;
   Node<kind>* cur;
 };
 
+#include "set.cpp"
 
 #endif

@@ -1,4 +1,5 @@
-#include "node.hxx"
+
+
 
 template <class prim>
 Node<prim>::Node( prim  datas ){
@@ -14,20 +15,26 @@ Node<prim>::Node(prim  datas, Node<prim>* next ){
 
 template <class prim>
 Node<prim>::~Node( ){
-  delete data;
+  
 }
 
 template <class prim>
 Node<prim>* Node<prim>::getNext(){
-  return data;
+  return nextNode;
 }
 
 template <class prim>
-void Node<prim>::setNext( Node<prim> * next ){
-  data = next;
+void Node<prim>::setNext( Node<prim>*  next ){
+ nextNode  = next;
 }
 
 template <class prim>
-void Node<prim>::setDatas( prim *datas){
+void Node<prim>::setDatas( prim datas){
   data = datas;
+}
+
+
+template <class prim>
+prim Node<prim>::getData( ){
+  return data;
 }

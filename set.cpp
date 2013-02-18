@@ -1,6 +1,5 @@
 #include <ostream>
-#include "set.hxx"
-#include "node.hxx"
+#include "set.hpp"
 
 
 template <class kind>
@@ -106,9 +105,9 @@ bool Set<kind>::search( kind s ){
 
 /*overloads the << operator*/
 template <class kind>
-std::ostream& operator <<  (std::ostream& outp, Set<kind>& obj1)
+std::ostream& operator<<  <>(std::ostream& outp, const Set<kind>& obj1)
 {
-  Node<kind>* counter = obj1->head;
+  Node<kind>* counter = obj1.head;
   while(counter) // as long as counter is not null, there is more in the list
     {
       /*outputs rows by 4*/
@@ -116,8 +115,8 @@ std::ostream& operator <<  (std::ostream& outp, Set<kind>& obj1)
 	{
 	  /*moving current and extracting data from each node*/
 	  
-	  outp << counter->data;
-	  counter = counter->next;
+	  outp << counter->getData();
+	  counter = counter->getNext();
 	}/*end first for loop*/
       
       /*jumps to the next row*/
