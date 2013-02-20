@@ -22,13 +22,6 @@
 //     Precondition:    read value passed and search for value in list
 //     Postcondition:   value found = true, value not found = false
 //
-//
-//   void retToHead ()
-//     Description:  	return current to head
-//     Precondition:    none
-//     Postcondition:   head is the new current
-//   
-//
 // CONSTANT MEMBER FUNCTIONS for the Set class
 //   <kind>  getCur (void) const
 //     Description:     Gets current elements data
@@ -47,27 +40,25 @@
 #include "node.hpp"
 #include <ostream>
 
-//pre-defs for linking
+//pre-defs for linking problems in some compilers
 template<class kind> class Set;
 template<class kind> std::ostream& operator<< (std::ostream& osObject, const Set<kind>& );
 
 template <class kind> class Set {
   
 public:
-  /*friend function*/
   
   Set(  );
-  virtual ~Set();
+  ~Set();
 
   /*functions*/
   kind next();
   void add( kind );
   int rm( );
   kind getCur( );
-  void retToHead();
   bool search( kind );
 
-  //declaration must be here to link
+  //declaration must be here to link properly
   friend std::ostream& operator<<  (std::ostream& outp, const Set<kind>& obj1){
     Node<kind>* counter = obj1.head;
     while(counter) // as long as counter is not null, there is more in the list                                                                                                                                    
@@ -94,6 +85,7 @@ private:
   Node<kind>* cur;
 };
 
+//cleaner way to have the compiler like the code for template classes, except for the <<operator. Can't figure that one out.
 #include "set.cpp"
 
 #endif

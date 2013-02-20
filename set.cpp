@@ -13,11 +13,9 @@ Set<kind>::Set(  ){
 
 template <class kind>
 Set<kind>::~Set(){
-  //using rm() tricks
+  //using rm() no need to double code
   cur = head;
   while ( rm() != -1 );
-
-
   
 }/*ends ~Set*/
 
@@ -66,25 +64,26 @@ int Set<kind>::rm( ){
   Node <kind>* delme = cur;
   
   if( delme  == head ){
-    
     head = head->getNext();
     cur = head;
     delete delme;
     return 0;
+
   }  else {
       delme = head;
-
+      
       while( delme->getNext() != cur ){
 	delme = delme->getNext();
       }
-
-      cur = delme; //set to previous node
-      cur->setNext( cur->getNext()->getNext() );
-      delme = cur->getNext();//to delme
+      
+      delme->setNext( delme->getNext()->getNext() ); //prev node link chaining
+      delme = cur; //to delme
       /*delete delme*/
+      
       delete delme;
       cur = head;
       return 0;
+
   }
   
   return -1;
@@ -102,11 +101,6 @@ kind Set<kind>::getCur(){
   }/*ends else*/
 }/*getCur*/
 
-template <class kind>
-void Set<kind>::retToHead(){
-  /*move cur to head*/
-  cur = head;
-}/*retToHead*/
 
 template <class kind>
 bool Set<kind>::search( kind s ){
@@ -116,6 +110,7 @@ bool Set<kind>::search( kind s ){
     if( searchIndex->getData() == s ){
       cur = searchIndex;
       return true;
+
     }/*ends if*/
     searchIndex = searchIndex->getNext();
   }/*ends while*/
