@@ -2,6 +2,8 @@
 #include "set.hpp"
 #include "node.hpp"
 #include <iostream>
+
+//for use of NULL, to clarify some parts of the code
 #include <cstdlib>
 
 template <class kind>
@@ -16,7 +18,6 @@ Set<kind>::~Set(){
   //using rm() no need to double code
   cur = head;
   while ( rm() != -1 );
-  
 }/*ends ~Set*/
 
 template <class kind>
@@ -34,6 +35,7 @@ template <class kind>
 void Set<kind>::add( kind addMe  ){
   Node<kind>* searchIndex;
   searchIndex = head;
+  
   if( head == NULL ){
     head = new Node<kind>( addMe );
     cur = head;
@@ -73,20 +75,19 @@ int Set<kind>::rm( ){
       delme = head;
       
       while( delme->getNext() != cur ){
-	delme = delme->getNext();
+   	    delme = delme->getNext();
       }
       
       delme->setNext( delme->getNext()->getNext() ); //prev node link chaining
-      delme = cur; //to delme
-      /*delete delme*/
+      delme = cur; //to node to be deleted, cur does not get changed thoughout here
       
+      /*delete delme*/
       delete delme;
       cur = head;
       return 0;
-
   }
   
-  return -1;
+  return -1; //something very wrong must have happend to get to here.
 }/*rm*/
 
 
@@ -117,5 +118,3 @@ bool Set<kind>::search( kind s ){
   /*return false*/
   return false;
 }/*search*/
-
-

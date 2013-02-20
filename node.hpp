@@ -1,38 +1,38 @@
-// CLASS PROVIDED:  Node 
+// CLASS PROVIDED:  Node<kind>
+//   Description: Tempate Class for Nodes in a Single Linked Data Structure
 //
 // CONSTRUCTOR for the Node class:
-//   Node( <>)
+//   Node( <kind>)
 //     Description:  	Initializes a new node with data
 //     Preconditions:  none
 //     Postcondition:  New Node with data as well as a next Node = NULL
 //
-//   Node( <>, Node<>)
+//   Node( <kind>, Node<kind>)
 //     Description:  	Initializes a new node with data and a next node
 //     Preconditions:  none
 //     Postcondition:  New Node with data as well as a next Node
 //
 // MEMBER FUNCTIONS for the Node class
-//   void setNext (const string value)
-//     Description:  	
-//     Precondition:  
-//     Postcondition:  
+//   void setNext ( Node<kind>)
+//     Description:  	Sets the next Node.
+//     Precondition:   none
+//     Postcondition:  Next Node is set.
 //
-//   Node<> getNext  (const float value)
-//     Description:  	
-//     Precondition:  value >=6.50 and <=25.75
-//     Postcondition:  hourly rate set to value
+//   Node<> getNext  ( void )
+//     Description:  	Return the next node.
+//     Precondition:   None
+//     Postcondition:  None
 //
-//   void setDatas (const string value)
-//     Description:  	
-//     Precondition:  
-//     Postcondition:  
+//   void setDatas ( <kind> )
+//     Description:  	Sets the value of the Node
+//     Precondition:    none
+//     Postcondition:  Internal data set.
 //
-//   void getData  (const int value)
-//     Description:  	
-//     Precondition:  
-//     Postcondition: 
+//   <kind> getData  ( void )
+//     Description:    Returns the data
+//     Precondition:   none
+//     Postcondition:  none
 //
-
 
 #ifndef _NODE_C
 #define _NODE_C
@@ -41,13 +41,13 @@ template <class prim> class Node{
 
 public:
   Node( prim );
-  Node( prim, Node<prim> * );
+  Node( prim, Node<prim>* );
   ~Node();
   
-  Node<prim>* getNext();
+  Node<prim>* getNext( void );
   void setNext( Node<prim>* );
   void setDatas( prim );
-  prim getData();
+  prim getData( void );
 private:
   prim data;
   Node<prim> *nextNode;
@@ -56,5 +56,3 @@ private:
 #include "node.cpp"
 
 #endif
-
-

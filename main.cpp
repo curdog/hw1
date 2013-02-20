@@ -1,9 +1,10 @@
+
 #include "set.hpp"
 #include <iostream>
 
 //For template class type
 #define TYPE int
-
+#define TYPE_STRING "integer"
 using namespace std;
 
 int main(){
@@ -38,7 +39,12 @@ int main(){
       /*declare variable*/
       int number;
       /*reads number*/
-      cin >> number;
+      while( !(cin >> number) || cin.peek() != '\n' ){
+      cin.clear();
+      cin.ignore( 1337, '\n');
+      cout << "Please select an " << TYPE_STRING << ": ";
+    } 
+
       obj1.add(number);
       break;
       
