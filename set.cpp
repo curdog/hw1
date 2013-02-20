@@ -52,6 +52,7 @@ void Set<kind>::add( kind addMe  ){
 
   Node<kind>* addMeNode = new Node<kind>( addMe, cur->getNext() );
   cur->setNext( addMeNode );
+  cur = cur->getNext();
   
 }/*add*/
 
@@ -65,7 +66,7 @@ int Set<kind>::rm( ){
   Node <kind>* delme = cur;
   
   if( delme  == head ){
-     
+    
     head = head->getNext();
     cur = head;
     delete delme;
@@ -82,6 +83,7 @@ int Set<kind>::rm( ){
       delme = cur->getNext();//to delme
       /*delete delme*/
       delete delme;
+      cur = head;
       return 0;
   }
   
