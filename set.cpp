@@ -13,24 +13,11 @@ Set<kind>::Set(  ){
 
 template <class kind>
 Set<kind>::~Set(){
-  //mostly terrible way to do this, go to close to the last node then delete 
-  //otherwise mem usage would double or possible stack overflow with recusive
-  
-  /*while head is not 0, current = head */
-  while( head != NULL ){
-    cur = head;
-    while( cur->getNext()->getNext() != NULL ){
-      
-      cur=cur->getNext();
-      
-    }/*end while*/
-    /*deletes current*/
-    delete cur->getNext();
-    cur->setNext(NULL);
-  }/*end while*/
-  if( head != NULL ){
-    delete head;
-  }
+  //using rm() tricks
+  cur = head;
+  while ( rm() != -1 );
+
+
   
 }/*ends ~Set*/
 
